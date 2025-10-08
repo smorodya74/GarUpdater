@@ -5,7 +5,7 @@
         /// <summary>
         /// Скачивает последний файл gar_delta_xml.zip в папку загрузки (Downloads). 
         /// </summary>
-        /// // <returns>Локальный путь к скачанному ZIP.</returns>
+        /// <returns>Локальный путь к загруженному ZIP.</returns>
         Task<string> DownloadLatestDeltaAsync(CancellationToken ct = default);
     }
 }
