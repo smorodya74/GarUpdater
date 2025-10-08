@@ -3,9 +3,14 @@
 
 ## Структура проекта
 ```
-├── 📁 GarUpdater.Application/      # Точка входа
-│   └── 🟣 Program.cs               
-├── 📁 GarUpdater.Core/             # Ядро программы (содержит сущности)
-├── 📁 GarUpdater.Infrastructure/   # Инфраструктура (содержит библиотеки)
-└── 📁 GarUpdater.Tests/            # Тесты программы
+├── 📁 GarUpdater.Application/
+│
+├── 📁 GarUpdater.Core/
+│   │
+│   ├── Intarfaces - содержит интерфейсы с методами
+│   └── Models - содержит модели (структуры xml файлов)
+│
+└── 📁 GarUpdater.Infrastructure/
+    │
+    └── Services - содержит реализацию загрузки, распаковку, парсинг и сохранение в csv
 ```
