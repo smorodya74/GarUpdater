@@ -24,7 +24,7 @@ namespace GarUpdater.Infrastructure.Services
             _targetFileName = section.GetValue<string>("TargetFileName") ?? "gar_delta_xml.zip";
 
             var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            _downloadFolder = Path.Combine(userProfile, "Downloads", "GarUpdater");
+            _downloadFolder = Path.Combine(userProfile, "Downloads", "GarUpdater", "Downloaded");
 
 
         }
@@ -45,7 +45,7 @@ namespace GarUpdater.Infrastructure.Services
             await using var fs = File.Create(zipPath);
             await using var rs = await responce.Content.ReadAsStreamAsync(ct);
 
-            var buffer = new byte[81920]; // 80 KB
+            var buffer = new byte[81920];
             long totalRead = 0;
             int read;
 
@@ -64,9 +64,9 @@ namespace GarUpdater.Infrastructure.Services
             }
 
             if (canReportProgress)
-                Console.WriteLine(); // перевод строки после завершения
+                Console.WriteLine();
 
-            _logger.LogInformation("Архив успешно скачан в {Path}", zipPath);
+            _logger.LogInformation("Архив успешно загружен в {Path}", zipPath);
             return zipPath;
         }
     }
